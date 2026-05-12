@@ -130,6 +130,15 @@
     display: inline-block;
   }
   .btn-outline:hover { border-color: var(--green-accent); background: rgba(0,214,143,0.08); }
+  .btn-cv {
+    border: 1.5px solid var(--green-accent); color: var(--green-accent);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 400; font-size: 0.9rem; text-decoration: none;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-cv:hover { background: var(--green-accent); color: var(--green-dark); }
   .hero-stats {
     display: flex; gap: 2.5rem; margin-top: 3rem;
     padding-top: 2rem;
@@ -151,10 +160,10 @@
   }
   .hero-image-bg {
     width: 320px; height: 380px;
-    background: rgba(0,214,143,0.12);
+    background: transparent;
     border-radius: 50% 50% 0 0 / 60% 60% 0 0;
     position: relative; overflow: hidden;
-    border: 1px solid rgba(0,214,143,0.25);
+    border: none;
   }
   .hero-placeholder {
     width: 100%; height: 100%;
@@ -511,6 +520,7 @@
     <div class="hero-buttons fade-up delay-3">
       <a href="#contact" class="btn-primary">Discutons de votre projet</a>
       <a href="#services" class="btn-outline">Voir mes services</a>
+      <a href="cv.pdf" download class="btn-cv">⬇ Télécharger mon CV</a>
     </div>
     <div class="hero-stats fade-up delay-4">
       <div>
@@ -529,7 +539,7 @@
   </div>
   <div class="hero-image-wrap">
     <div class="hero-image-bg">
-      <div class="hero-placeholder">
+    <div class="hero-placeholder">
         <div class="hero-initials">TH</div>
         <div class="hero-initials-sub">Tantely Harijaona</div>
       </div>
