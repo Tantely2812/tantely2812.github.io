@@ -3,488 +3,479 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tantely Harijaona — Customer Success Expert & Pilotage Opérationnel</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Tantely Harijaona — Expert Relation Client</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-dark: #0F4A35;
-    --green-mid: #1A6B4A;
-    --green-accent: #00D68F;
-    --green-light: #00C47A;
-    --beige: #F0EDE6;
-    --beige-dark: #E4E0D6;
-    --gray-text: #3D3D3D;
-    --gray-muted: #6B6B6B;
-    --white: #FFFFFF;
-    --dot-color: rgba(0,214,143,0.35);
+    --teal: #0d5c4a;
+    --teal-light: #14745e;
+    --teal-pale: #e6f2ef;
+    --gold: #c9a84c;
+    --dark: #0f1a17;
+    --mid: #3a4f49;
+    --light: #f5f9f7;
+    --white: #ffffff;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--beige);
-    color: var(--gray-text);
+    background: var(--dark);
+    color: var(--white);
     overflow-x: hidden;
   }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(15,74,53,0.97);
-    backdrop-filter: blur(8px);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
-    height: 64px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(15,26,23,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
   }
   .nav-logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem; font-weight: 700;
-    color: var(--white); letter-spacing: 0.05em;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    transition: color 0.3s;
   }
-  .nav-logo span { color: var(--green-accent); }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav ul a {
-    color: rgba(255,255,255,0.75); text-decoration: none;
-    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.05em;
-    text-transform: uppercase; transition: color 0.2s;
-  }
-  nav ul a:hover { color: var(--green-accent); }
-  .nav-cta {
-    background: var(--green-accent); color: var(--green-dark) !important;
-    padding: 0.4rem 1.2rem; border-radius: 2px; font-weight: 500 !important;
-    transition: opacity 0.2s !important;
-  }
-  .nav-cta:hover { opacity: 0.85; }
+  .nav-links a:hover { color: var(--gold); }
 
   /* HERO */
-  .hero {
+  #hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0a3024 0%, #0F4A35 50%, #1a6040 100%);
-    display: flex; align-items: center;
-    padding: 64px 5% 0;
-    position: relative; overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-dots {
-    position: absolute; top: 0; right: 0; width: 400px; height: 400px;
-    background-image: radial-gradient(circle, var(--dot-color) 2px, transparent 2px);
-    background-size: 22px 22px;
-    mask-image: radial-gradient(ellipse 80% 80% at 80% 20%, black 40%, transparent 100%);
-    pointer-events: none;
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(13,92,74,0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 10% 80%, rgba(201,168,76,0.08) 0%, transparent 40%);
   }
-  .hero-dots-br {
-    position: absolute; bottom: 0; left: 5%; width: 300px; height: 200px;
-    background-image: radial-gradient(circle, rgba(0,214,143,0.2) 1.5px, transparent 1.5px);
-    background-size: 18px 18px;
-    mask-image: radial-gradient(ellipse at 20% 80%, black 30%, transparent 80%);
-    pointer-events: none;
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
-  .hero-content {
-    flex: 1; z-index: 1; max-width: 55%;
-    padding: 3rem 0;
-  }
+  .hero-text { position: relative; z-index: 2; }
   .hero-eyebrow {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--green-accent);
-    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
   }
   .hero-eyebrow::before {
-    content: ''; display: block; width: 32px; height: 2px;
-    background: var(--green-accent);
+    content: ''; width: 2.5rem; height: 1px; background: var(--gold);
   }
-  .hero-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    font-weight: 900; line-height: 0.92;
-    color: var(--white); text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 2rem;
-  }
-  .hero-headline .accent { color: var(--green-accent); }
-  .hero-sub {
-    font-size: 1.05rem; font-weight: 300;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7; max-width: 480px;
-    margin-bottom: 2.5rem;
-    font-style: italic;
-  }
-  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--green-accent); color: var(--green-dark);
-    padding: 0.85rem 2rem; border-radius: 2px;
-    font-weight: 500; font-size: 0.9rem; text-decoration: none;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,214,143,0.35); }
-  .btn-outline {
-    border: 1.5px solid rgba(255,255,255,0.4); color: var(--white);
-    padding: 0.85rem 2rem; border-radius: 2px;
-    font-weight: 400; font-size: 0.9rem; text-decoration: none;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    transition: border-color 0.2s, background 0.2s;
-    display: inline-block;
-  }
-  .btn-outline:hover { border-color: var(--green-accent); background: rgba(0,214,143,0.08); }
-  .btn-cv {
-    border: 1.5px solid var(--green-accent); color: var(--green-accent);
-    padding: 0.85rem 2rem; border-radius: 2px;
-    font-weight: 400; font-size: 0.9rem; text-decoration: none;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    transition: background 0.2s, color 0.2s;
-    display: inline-block;
-  }
-  .btn-cv:hover { background: var(--green-accent); color: var(--green-dark); }
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.12);
-  }
-  .hero-stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 2.5rem; font-weight: 800; color: var(--green-accent);
-    line-height: 1;
-  }
-  .hero-stat-label {
-    font-size: 0.78rem; color: rgba(255,255,255,0.55);
-    text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.25rem;
-  }
-  .hero-image-wrap {
-    flex: 0 0 380px; z-index: 1;
-    display: flex; justify-content: center; align-items: flex-end;
-    padding-bottom: 0;
-  }
-  .hero-image-bg {
-    width: 320px; height: 380px;
-    background: transparent;
-    border-radius: 50% 50% 0 0 / 60% 60% 0 0;
-    position: relative; overflow: hidden;
-    border: none;
-  }
-  .hero-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    color: rgba(0,214,143,0.6);
-  }
-  .hero-avatar-icon {
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: rgba(0,214,143,0.2);
-    display: flex; align-items: center; justify-content: center;
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.05;
+    font-weight: 900;
     margin-bottom: 1rem;
   }
-  .hero-avatar-icon svg { width: 60px; height: 60px; fill: var(--green-accent); }
-  .hero-initials {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 4rem; font-weight: 900;
-    color: var(--green-accent); opacity: 0.8;
-    letter-spacing: 0.05em;
+  h1 span { color: var(--gold); display: block; }
+  .hero-tagline {
+    font-size: 1.1rem; color: rgba(255,255,255,0.6);
+    max-width: 420px; line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
   }
-  .hero-initials-sub {
-    font-size: 0.75rem; color: rgba(0,214,143,0.5);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    margin-top: 0.5rem;
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 2rem;
+    background: var(--gold);
+    color: var(--dark); font-weight: 500;
+    text-decoration: none; border-radius: 2px;
+    font-size: 0.9rem; letter-spacing: 0.5px;
+    transition: all 0.3s;
+  }
+  .hero-cta:hover { background: #e0bc5c; transform: translateY(-2px); }
+  .hero-cta-ghost {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none; border-radius: 2px;
+    font-size: 0.9rem; letter-spacing: 0.5px;
+    margin-left: 1rem;
+    transition: all 0.3s;
+  }
+  .hero-cta-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 340px;
+    backdrop-filter: blur(4px);
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: -1px; left: 30px; right: 30px; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    border-radius: 0 0 4px 4px;
+  }
+  .photo-ring {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--gold));
+    padding: 3px;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+  .photo-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: var(--mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    overflow: hidden;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; text-align: center;
+    margin-bottom: 0.3rem;
+  }
+  .card-title {
+    text-align: center;
+    font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.8rem;
+  }
+  .card-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; color: var(--gold); display: block;
+  }
+  .stat-label {
+    font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-top: 0.2rem;
   }
 
   /* SECTIONS */
-  section { padding: 6rem 5%; }
-
+  section { padding: 6rem 4rem; }
+  .section-header { margin-bottom: 4rem; }
   .section-label {
-    font-size: 0.75rem; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--green-mid);
-    font-weight: 500; margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
   }
-  .section-label::before {
-    content: ''; width: 24px; height: 2px;
-    background: var(--green-accent); display: block;
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.15; color: var(--white);
   }
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900; text-transform: uppercase;
-    line-height: 0.95; color: var(--green-dark);
-    margin-bottom: 3rem;
-  }
-  .section-title .accent { color: var(--green-accent); }
-
-  /* ABOUT */
-  .about { background: var(--white); }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-    align-items: start;
-  }
-  .about-text p {
-    font-size: 1rem; line-height: 1.85; color: var(--gray-text);
-    margin-bottom: 1.25rem;
-  }
-  .about-text p strong { color: var(--green-dark); font-weight: 500; }
-  .about-mission {
-    background: var(--green-dark);
-    padding: 2rem; border-radius: 4px;
-    margin-top: 2rem;
-  }
-  .about-mission p {
-    color: rgba(255,255,255,0.85);
-    font-style: italic; font-size: 1.05rem; line-height: 1.7;
-    margin: 0;
-  }
-  .about-mission p strong { color: var(--green-accent); font-style: normal; }
-  .about-right {}
-  .about-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--beige); padding: 0.5rem 1rem;
-    border-radius: 2px; font-size: 0.82rem;
-    color: var(--green-dark); font-weight: 500;
-    margin-bottom: 2rem; border-left: 3px solid var(--green-accent);
-  }
-  .skills-list { display: flex; flex-direction: column; gap: 1.5rem; }
-  .skill-item label {
-    display: flex; justify-content: space-between;
-    font-size: 0.88rem; font-weight: 500; color: var(--green-dark);
-    margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;
-  }
-  .skill-item label span { color: var(--green-accent); font-weight: 700; }
-  .skill-bar {
-    height: 4px; background: var(--beige-dark); border-radius: 0;
-    overflow: hidden;
-  }
-  .skill-fill {
-    height: 100%; background: linear-gradient(90deg, var(--green-mid), var(--green-accent));
-    border-radius: 0;
-  }
-
-  /* SERVICES */
-  .services { background: var(--beige); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
-    background: var(--beige-dark);
-  }
-  .service-card {
-    background: var(--white); padding: 2.5rem 2rem;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
-  }
-  .service-card:hover { background: var(--green-dark); }
-  .service-card:hover .service-icon,
-  .service-card:hover .service-title,
-  .service-card:hover .service-text,
-  .service-card:hover .service-tag { color: var(--white); }
-  .service-card:hover .service-icon { color: var(--green-accent); }
-  .service-card:hover .service-tag {
-    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);
-  }
-  .service-icon {
-    font-size: 2rem; color: var(--green-accent);
-    margin-bottom: 1.5rem; display: block;
-    transition: color 0.3s;
-  }
-  .service-num {
-    position: absolute; top: 1.5rem; right: 2rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 4rem; font-weight: 900; color: var(--beige);
-    line-height: 1; pointer-events: none;
-    transition: color 0.3s;
-  }
-  .service-card:hover .service-num { color: rgba(255,255,255,0.06); }
-  .service-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.5rem; font-weight: 800; text-transform: uppercase;
-    color: var(--green-dark); margin-bottom: 1rem; line-height: 1.1;
-    transition: color 0.3s;
-  }
-  .service-text {
-    font-size: 0.9rem; line-height: 1.75; color: var(--gray-muted);
-    transition: color 0.3s;
-  }
-  .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
-  .service-tag {
-    font-size: 0.7rem; padding: 0.25rem 0.6rem;
-    background: var(--beige); color: var(--green-mid);
-    border-radius: 1px; text-transform: uppercase;
-    letter-spacing: 0.06em; font-weight: 500;
-    transition: background 0.3s, color 0.3s;
-  }
+  h2 em { font-style: normal; color: var(--gold); }
 
   /* EXPERIENCE */
-  .experience { background: var(--green-dark); }
-  .experience .section-title { color: var(--white); }
-  .experience .section-label { color: var(--green-accent); }
-  .timeline { position: relative; }
+  #experience { background: var(--light); color: var(--dark); }
+  #experience .section-label { color: var(--teal); }
+  #experience .section-label::after { background: var(--teal); }
+  #experience h2 { color: var(--dark); }
+  #experience h2 em { color: var(--teal); }
+
+  .timeline { position: relative; padding-left: 2rem; }
   .timeline::before {
     content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 2px; background: rgba(0,214,143,0.25);
-  }
-  .timeline-item {
-    display: grid; grid-template-columns: 1fr auto 2fr; gap: 2rem;
-    padding: 2rem 0 2rem 2.5rem;
-    position: relative;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .timeline-item:last-child { border-bottom: none; }
-  .timeline-dot {
-    position: absolute; left: -5px; top: 2.5rem;
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--green-accent);
-    box-shadow: 0 0 0 3px rgba(0,214,143,0.2);
-  }
-  .timeline-date {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem; font-weight: 700; color: var(--green-accent);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    padding-top: 0.2rem; white-space: nowrap;
-  }
-  .timeline-divider {
-    width: 1px; background: rgba(255,255,255,0.1);
-    align-self: stretch; margin: 0.25rem 0;
-  }
-  .timeline-content {}
-  .timeline-role {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.3rem; font-weight: 800; text-transform: uppercase;
-    color: var(--white); margin-bottom: 0.25rem;
-  }
-  .timeline-company {
-    font-size: 0.85rem; color: var(--green-accent); font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;
-  }
-  .timeline-desc {
-    font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--teal), rgba(13,92,74,0.1));
   }
 
-  /* COMPETENCES */
-  .competences { background: var(--white); }
-  .comp-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px;
-    background: var(--beige-dark);
+  .exp-item {
+    position: relative; margin-bottom: 2.5rem;
+    opacity: 0; transform: translateX(-20px);
+    animation: slideIn 0.6s forwards;
   }
-  .comp-card {
-    background: var(--white); padding: 2rem 1.5rem;
+  .exp-item:nth-child(1) { animation-delay: 0.1s; }
+  .exp-item:nth-child(2) { animation-delay: 0.2s; }
+  .exp-item:nth-child(3) { animation-delay: 0.3s; }
+  .exp-item:nth-child(4) { animation-delay: 0.4s; }
+  .exp-item:nth-child(5) { animation-delay: 0.5s; }
+  .exp-item:nth-child(6) { animation-delay: 0.6s; }
+  .exp-item:nth-child(7) { animation-delay: 0.7s; }
+  .exp-item:nth-child(8) { animation-delay: 0.8s; }
+
+  @keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
   }
-  .comp-category {
-    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--green-accent); font-weight: 500; margin-bottom: 1rem;
+
+  .exp-dot {
+    position: absolute; left: -2.35rem; top: 0.4rem;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 3px var(--teal-pale);
   }
-  .comp-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.4rem; font-weight: 800; text-transform: uppercase;
-    color: var(--green-dark); margin-bottom: 1.25rem; line-height: 1.1;
+  .exp-item.featured .exp-dot {
+    background: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
   }
-  .comp-tags { display: flex; flex-direction: column; gap: 0.5rem; }
-  .comp-tag {
-    font-size: 0.83rem; color: var(--gray-muted);
-    padding: 0.4rem 0;
-    border-bottom: 1px solid var(--beige-dark);
-    display: flex; align-items: center; gap: 0.5rem;
+  .exp-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    border: 1px solid rgba(13,92,74,0.1);
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
   }
-  .comp-tag::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--green-accent); flex-shrink: 0;
+  .exp-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 30px rgba(13,92,74,0.12);
+    border-color: var(--teal);
+  }
+  .exp-item.featured .exp-card { border-color: var(--gold); }
+  .exp-item.featured .exp-card::before {
+    content: 'Actuel';
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--gold); color: var(--dark);
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 1px;
+    padding: 0.2rem 0.6rem; border-radius: 20px;
+    text-transform: uppercase;
+  }
+  .exp-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .exp-role {
+    font-weight: 600; font-size: 1rem; color: var(--dark);
+  }
+  .exp-company { color: var(--teal); font-weight: 500; }
+  .exp-year {
+    font-size: 0.8rem; color: rgba(0,0,0,0.4);
+    white-space: nowrap; padding: 0.2rem 0.7rem;
+    background: var(--teal-pale); border-radius: 20px;
+    margin-left: 1rem; flex-shrink: 0;
+  }
+  .exp-tasks {
+    list-style: none; margin-top: 0.8rem;
+    display: flex; flex-direction: column; gap: 0.35rem;
+  }
+  .exp-tasks li {
+    font-size: 0.88rem; color: var(--mid);
+    display: flex; gap: 0.5rem; align-items: flex-start;
+  }
+  .exp-tasks li::before {
+    content: '→'; color: var(--teal); flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* MON OFFRE */
+  #offre { background: var(--dark); }
+  .offre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+  }
+  .offre-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+  .offre-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .offre-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-6px); background: rgba(255,255,255,0.055); }
+  .offre-card:hover::before { transform: scaleX(1); }
+  .offre-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: rgba(13,92,74,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
+    transition: background 0.3s;
+  }
+  .offre-card:hover .offre-icon { background: rgba(201,168,76,0.15); }
+  .offre-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; margin-bottom: 0.6rem;
+    color: var(--white);
+  }
+  .offre-desc {
+    font-size: 0.88rem; color: rgba(255,255,255,0.58);
+    line-height: 1.7; margin-bottom: 1.2rem;
+  }
+  .offre-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+  }
+  .offre-tag {
+    font-size: 0.72rem; letter-spacing: 0.5px;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(13,92,74,0.3);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(13,92,74,0.5);
+  }
+
+  /* SKILLS */
+  #skills { background: var(--dark); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .skill-group h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; margin-bottom: 1.8rem;
+    color: var(--gold);
+  }
+  .skill-bar-item { margin-bottom: 1.4rem; }
+  .skill-bar-header {
+    display: flex; justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .skill-bar-track {
+    height: 6px; background: rgba(255,255,255,0.08);
+    border-radius: 10px; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; border-radius: 10px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    width: 0;
+    animation: fillBar 1.2s ease forwards;
+    animation-delay: 0.5s;
+  }
+  @keyframes fillBar {
+    to { width: var(--w); }
+  }
+
+  .soft-skills-list {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .soft-tag {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+  }
+  .soft-tag:hover { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.05); }
+  .soft-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(13,92,74,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+
+  /* EDUCATION */
+  #education { background: var(--teal); }
+  #education .section-label { color: var(--gold); }
+  #education .section-label::after { background: var(--gold); }
+  #education h2 { color: var(--white); }
+  #education h2 em { color: var(--gold); }
+
+  .edu-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .edu-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+  .edu-card:hover { background: rgba(255,255,255,0.13); transform: translateY(-4px); }
+  .edu-year {
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; margin-bottom: 0.4rem;
+  }
+  .edu-field { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
+  .edu-school {
+    font-size: 0.8rem; color: rgba(255,255,255,0.5);
+    display: flex; align-items: center; gap: 0.4rem;
   }
 
   /* CONTACT */
-  .contact {
-    background: linear-gradient(135deg, #0a3024 0%, #0F4A35 100%);
-    text-align: center; position: relative; overflow: hidden;
+  #contact { background: var(--dark); text-align: center; }
+  .contact-wrapper { max-width: 680px; margin: 0 auto; }
+  .contact-intro {
+    font-size: 1.05rem; color: rgba(255,255,255,0.6);
+    line-height: 1.8; margin-bottom: 3rem;
   }
-  .contact-dots {
-    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
-    background-image: radial-gradient(circle, rgba(0,214,143,0.15) 1.5px, transparent 1.5px);
-    background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-    pointer-events: none;
+  .contact-links {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
   }
-  .contact > * { position: relative; z-index: 1; }
-  .contact .section-label { justify-content: center; }
-  .contact .section-label::before { background: rgba(0,214,143,0.5); }
-  .contact .section-title { color: var(--white); margin-bottom: 1rem; }
-  .contact-sub {
-    font-size: 1.1rem; color: rgba(255,255,255,0.65);
-    font-style: italic; margin-bottom: 3rem;
+  .contact-link {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 1.1rem 2rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    color: var(--white); text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
   }
-  .contact-cards {
-    display: flex; justify-content: center; gap: 1.5rem;
-    flex-wrap: wrap; margin-bottom: 3rem;
+  .contact-link:hover {
+    border-color: var(--gold); color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(201,168,76,0.1);
   }
-  .contact-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(0,214,143,0.2);
-    border-radius: 4px; padding: 1.5rem 2rem;
-    display: flex; align-items: center; gap: 1rem;
-    text-decoration: none; transition: background 0.2s, border-color 0.2s;
-    min-width: 240px;
-  }
-  .contact-card:hover {
-    background: rgba(0,214,143,0.1); border-color: var(--green-accent);
-  }
-  .contact-card-icon {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(0,214,143,0.15);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--green-accent); font-size: 1.2rem; flex-shrink: 0;
-  }
-  .contact-card-label {
-    font-size: 0.72rem; text-transform: uppercase;
-    letter-spacing: 0.1em; color: rgba(255,255,255,0.45);
-    margin-bottom: 0.25rem;
-  }
-  .contact-card-value {
-    font-size: 0.95rem; color: var(--white); font-weight: 500;
-  }
-  .contact-available {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(0,214,143,0.12); border: 1px solid rgba(0,214,143,0.3);
-    padding: 0.6rem 1.5rem; border-radius: 2px;
-    color: var(--green-accent); font-size: 0.85rem;
-    text-transform: uppercase; letter-spacing: 0.1em;
-  }
-  .contact-available-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--green-accent); animation: pulse 1.5s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
+  .contact-icon { font-size: 1.1rem; }
 
   /* FOOTER */
   footer {
-    background: #061a10; padding: 1.5rem 5%;
-    display: flex; align-items: center; justify-content: space-between;
+    padding: 2rem 4rem;
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; color: rgba(255,255,255,0.3);
   }
-  .footer-logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.9rem; font-weight: 700; color: rgba(255,255,255,0.4);
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
-  .footer-logo span { color: var(--green-accent); }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+  footer span { color: var(--gold); }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up { animation: fadeUp 0.7s ease forwards; }
-  .delay-1 { animation-delay: 0.1s; opacity: 0; }
-  .delay-2 { animation-delay: 0.25s; opacity: 0; }
-  .delay-3 { animation-delay: 0.4s; opacity: 0; }
-  .delay-4 { animation-delay: 0.55s; opacity: 0; }
+  /* FADE IN */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 900px) {
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .comp-grid { grid-template-columns: 1fr 1fr; }
-    .hero-content { max-width: 100%; }
-    .hero-image-wrap { display: none; }
-    nav ul { display: none; }
-    .timeline-item { grid-template-columns: auto 2fr; }
-    .timeline-divider { display: none; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+    .hero-visual { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
   }
 </style>
 </head>
@@ -492,371 +483,409 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Tantely <span>H.</span></div>
-  <ul>
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#experience">Expérience</a></li>
-    <li><a href="#competences">Compétences</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  <div class="nav-logo">T.H</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Expériences</a></li>
+    <li><a href="#offre">Mon offre</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#education">Formation</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-dots"></div>
-  <div class="hero-dots-br"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow fade-up">Expert · Madagascar · Remote</div>
-    <h1 class="hero-headline fade-up delay-1">
-      ET SI VOUS<br>
-      DÉLÉGUIEZ<br>
-      VOTRE <span class="accent">CROISSANCE</span><br>
-      À UN EXPERT ?
-    </h1>
-    <p class="hero-sub fade-up delay-2">
-      Transformer la complexité en efficacité opérationnelle.
-    </p>
-    <div class="hero-buttons fade-up delay-3">
-      <a href="#contact" class="btn-primary">Discutons de votre projet</a>
-      <a href="#services" class="btn-outline">Voir mes services</a>
-      <a href="cv.pdf" download class="btn-cv">⬇ Télécharger mon CV</a>
-    </div>
-    <div class="hero-stats fade-up delay-4">
-      <div>
-        <div class="hero-stat-num">5+</div>
-        <div class="hero-stat-label">Années d'expérience</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">7</div>
-        <div class="hero-stat-label">Entreprises accompagnées</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">Remote-ready</div>
-      </div>
-    </div>
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-text">
+    <p class="hero-eyebrow">Portfolio professionnel</p>
+    <h1>Tantely<span>Harijaona</span></h1>
+    <p class="hero-tagline">Expert en relation client avec 8 ans d'expérience progressive dans le service client, le management d'équipes et le quality control en centre d'appel.</p>
+    <a href="#contact" class="hero-cta">Me contacter ↗</a>
+    <a href="#experience" class="hero-cta-ghost">Voir mon parcours</a>
   </div>
-  <div class="hero-image-wrap">
-    <div class="hero-image-bg">
-    <div class="hero-placeholder">
-        <div class="hero-initials">TH</div>
-        <div class="hero-initials-sub">Tantely Harijaona</div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="photo-ring">
+        <div class="photo-inner">👤</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="section-label">Qui suis-je ?</div>
-      <h2 class="section-title">Expert en<br>Relation <span class="accent">Client</span><br>depuis + de 5 ans</h2>
-      <p>Expert en relation client et gestionnaire polyvalent basé à <strong>Madagascar</strong>, j'accompagne les dirigeants et les entreprises dans la structuration de leur activité.</p>
-      <p>Mon approche combine un <strong>leadership humain</strong> (gestion d'équipes de dizaines de conseillers) et une <strong>rigueur technique</strong> (IA, CRM, Gestion de flux).</p>
-      <div class="about-mission">
-        <p>Ma mission est simple : <strong>sécuriser vos opérations</strong> et optimiser l'expérience de vos clients pour vous permettre de vous concentrer sur votre cœur de métier.</p>
-      </div>
-    </div>
-    <div class="about-right">
-      <div class="about-badge">📍 Tananarive, Madagascar — Disponible en remote international</div>
-      <div class="skills-list">
-        <div class="skill-item">
-          <label>Leadership & Management <span>95%</span></label>
-          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      <div class="card-name">Tantely Harijaona</div>
+      <div class="card-title">Expert Relation Client</div>
+      <div class="card-stats">
+        <div>
+          <span class="stat-num">8+</span>
+          <div class="stat-label">Années d'expérience</div>
         </div>
-        <div class="skill-item">
-          <label>Customer Success <span>90%</span></label>
-          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        <div>
+          <span class="stat-num">5+</span>
+          <div class="stat-label">Entreprises</div>
         </div>
-        <div class="skill-item">
-          <label>Pilotage des KPIs <span>88%</span></label>
-          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-        </div>
-        <div class="skill-item">
-          <label>Outils digitaux (IA, CRM) <span>85%</span></label>
-          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <label>Audit & Qualité <span>92%</span></label>
-          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-        </div>
-        <div class="skill-item">
-          <label>Gestion opérationnelle <span>87%</span></label>
-          <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+        <div>
+          <span class="stat-num">10+</span>
+          <div class="stat-label">Équipes managées</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-label">Ce que j'apporte</div>
-  <h2 class="section-title">Mes <span class="accent">Services</span></h2>
-  <div class="services-grid">
-
-    <div class="service-card">
-      <span class="service-num">01</span>
-      <span class="service-icon">⚙️</span>
-      <div class="service-title">Pilotage de Flux &amp; KPIs</div>
-      <p class="service-text">Gestion en temps réel des indicateurs de performance et des flux de production pour garantir l'atteinte de vos objectifs opérationnels.</p>
-      <div class="service-tags">
-        <span class="service-tag">Reporting</span>
-        <span class="service-tag">Analyse</span>
-        <span class="service-tag">Temps réel</span>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">02</span>
-      <span class="service-icon">🎯</span>
-      <div class="service-title">Customer Success &amp; Qualité</div>
-      <p class="service-text">Audit proactif des anomalies, actions correctives et gestion haut de gamme de la relation client axée sur la satisfaction durable.</p>
-      <div class="service-tags">
-        <span class="service-tag">CRM</span>
-        <span class="service-tag">Fidélisation</span>
-        <span class="service-tag">Audit</span>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <span class="service-icon">👥</span>
-      <div class="service-title">Leadership &amp; Coaching</div>
-      <p class="service-text">Coaching de collaborateurs, montée en compétences des équipes et ingénierie de formation pour une excellence de service constante.</p>
-      <div class="service-tags">
-        <span class="service-tag">Formation</span>
-        <span class="service-tag">Coaching</span>
-        <span class="service-tag">Leadership</span>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">04</span>
-      <span class="service-icon">🗂️</span>
-      <div class="service-title">Organisation &amp; Planification</div>
-      <p class="service-text">Élaboration de plannings complexes et coordination de réseaux de prestataires : logistique, chauffeurs, maintenance et gestion documentaire.</p>
-      <div class="service-tags">
-        <span class="service-tag">Planification</span>
-        <span class="service-tag">Logistique</span>
-        <span class="service-tag">Coordination</span>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">05</span>
-      <span class="service-icon">🤖</span>
-      <div class="service-title">Digitalisation &amp; IA</div>
-      <p class="service-text">Intégration d'outils IA et CRM pour automatiser et optimiser vos processus opérationnels. Maîtrise de Notion, Google et Office.</p>
-      <div class="service-tags">
-        <span class="service-tag">IA</span>
-        <span class="service-tag">CRM</span>
-        <span class="service-tag">Notion</span>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">06</span>
-      <span class="service-icon">💼</span>
-      <div class="service-title">Gestion Administrative</div>
-      <p class="service-text">Facturation, documents financiers, structuration financière, gestion des réservations et organisation documentaire complète.</p>
-      <div class="service-tags">
-        <span class="service-tag">Facturation</span>
-        <span class="service-tag">Finance</span>
-        <span class="service-tag">Admin</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <div class="section-label">Parcours professionnel</div>
-  <h2 class="section-title">Résultats &amp; <span class="accent">Expérience</span><br>Décisive</h2>
+<section id="experience">
+  <div class="section-header fade-up">
+    <p class="section-label">Parcours professionnel</p>
+    <h2>Mes <em>expériences</em></h2>
+  </div>
   <div class="timeline">
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2026</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Team Leader Assurances</div>
-        <div class="timeline-company">INTELCIA</div>
-        <p class="timeline-desc">Pilotage des KPIs, coaching de performance et gestion stratégique des flux.</p>
+    <div class="exp-item featured">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Team Leader – Assurances Auto</div>
+            <div class="exp-company">INTELCIA</div>
+          </div>
+          <span class="exp-year">2026</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Pilotage des KPIs et flux de production</li>
+          <li>Coaching et accompagnement des collaborateurs</li>
+          <li>Envoi de reporting et analyse des performances</li>
+        </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2025</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Assistant Polyvalent</div>
-        <div class="timeline-company">Smartelia</div>
-        <p class="timeline-desc">Structuration financière, gestion des réservations et organisation documentaire.</p>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Assistant Polyvalent</div>
+            <div class="exp-company">Smartelia</div>
+          </div>
+          <span class="exp-year">2025</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Préparation de documents financiers</li>
+          <li>Gestion de réservations et facturation</li>
+          <li>Classement et archivage de documents</li>
+        </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024–2025</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Customer Success</div>
-        <div class="timeline-company">Mass'il Inc</div>
-        <p class="timeline-desc">Conseil spécialisé en alimentation animale et optimisation du suivi logistique.</p>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Customer Success (Freelance)</div>
+            <div class="exp-company">Mass'il Inc</div>
+          </div>
+          <span class="exp-year">2024–2025</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Gestion des demandes clients multicanal (téléphone, mail)</li>
+          <li>Conseil sur l'alimentation et les produits pour animaux</li>
+          <li>Suivi logistique et coordination des livraisons</li>
+        </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2023–2024</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Team Leader &amp; Coach</div>
-        <div class="timeline-company">Odity</div>
-        <p class="timeline-desc">Direction d'équipes de dizaines de conseillers et élaboration des plannings de production.</p>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Team Leader</div>
+            <div class="exp-company">Odity</div>
+          </div>
+          <span class="exp-year">2023–2024</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Supervision et coaching d'une équipe de dizaines de conseillers</li>
+          <li>Élaboration des plannings de production</li>
+          <li>Analyse des flux de travail et des KPI's, envoi de reporting</li>
+          <li>Formation des nouveaux collaborateurs</li>
+          <li>Définition des actions correctives qualité</li>
+        </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2021–2023</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Contrôleur Qualité</div>
-        <div class="timeline-company">Odity</div>
-        <p class="timeline-desc">Audit des traitements, identification d'anomalies et mise en place d'actions correctives.</p>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Contrôleur Qualité</div>
+            <div class="exp-company">Odity</div>
+          </div>
+          <span class="exp-year">2021–2023</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Évaluation de la qualité des traitements des conseillers</li>
+          <li>Proposition d'actions correctives face aux écarts qualitatifs</li>
+          <li>Identification des causes d'anomalies et dysfonctionnements</li>
+        </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2019–2021</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Conseiller Client Expert</div>
-        <div class="timeline-company">COMDATA / Intelcia</div>
-        <p class="timeline-desc">Dépannage technique Internet/TV, suivi FTTH et gestion des escalades Niveau 2.</p>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Back-Office Assurance</div>
+            <div class="exp-company">Odity</div>
+          </div>
+          <span class="exp-year">2021</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Vérification et insertion des informations clients en base de données</li>
+        </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2018</div>
-      <div class="timeline-divider"></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Téléopérateur B2B</div>
-        <div class="timeline-company">Procontact</div>
-        <p class="timeline-desc">Prospection et prise de rendez-vous en environnement professionnel.</p>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Conseiller Client</div>
+            <div class="exp-company">COMDATA</div>
+          </div>
+          <span class="exp-year">2020</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Dépannage ligne internet, téléphonique et télévision</li>
+          <li>Programmation des interventions des techniciens terrain</li>
+          <li>Assistance produits opérateur (boîte mail, antivirus, domino 4G)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Conseiller Client</div>
+            <div class="exp-company">Intelcia</div>
+          </div>
+          <span class="exp-year">2019</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Dépannage ligne internet, téléphonique et télévision</li>
+          <li>Assistance produits opérateur (boîte mail, domino 4G)</li>
+          <li>Suivi installations FTTH et escalade niveau 2</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Téléopérateur</div>
+            <div class="exp-company">Procontact</div>
+          </div>
+          <span class="exp-year">2018</span>
+        </div>
+        <ul class="exp-tasks">
+          <li>Prise de rendez-vous B2B</li>
+        </ul>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- COMPETENCES -->
-<section class="competences" id="competences">
-  <div class="section-label">Écosystème de compétence</div>
-  <h2 class="section-title">Mes <span class="accent">Compétences</span></h2>
-  <div class="comp-grid">
+<!-- MON OFFRE -->
+<section id="offre">
+  <div class="section-header fade-up">
+    <p class="section-label">Ce que je peux apporter</p>
+    <h2>Mon <em>offre</em></h2>
+  </div>
+  <div class="offre-grid fade-up">
 
-    <div class="comp-card">
-      <div class="comp-category">Management</div>
-      <div class="comp-title">Leadership &amp; Performance</div>
-      <div class="comp-tags">
-        <div class="comp-tag">Leadership d'équipe</div>
-        <div class="comp-tag">Coaching</div>
-        <div class="comp-tag">Analyse de flux</div>
-        <div class="comp-tag">Reporting</div>
-        <div class="comp-tag">Planification</div>
+    <div class="offre-card">
+      <div class="offre-icon">😊</div>
+      <div class="offre-title">Satisfaire vos clients</div>
+      <p class="offre-desc">Je prends en charge vos clients avec aisance et empathie, par téléphone ou par mail, pour garantir une expérience fluide, des réponses rapides et une fidélisation durable.</p>
+      <div class="offre-tags">
+        <span class="offre-tag">Relation client</span>
+        <span class="offre-tag">Multicanal</span>
+        <span class="offre-tag">Fidélisation</span>
       </div>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-category">Relation Client</div>
-      <div class="comp-title">Customer Success</div>
-      <div class="comp-tags">
-        <div class="comp-tag">Customer Success</div>
-        <div class="comp-tag">GRC</div>
-        <div class="comp-tag">Conseil stratégique</div>
-        <div class="comp-tag">Fidélisation</div>
-        <div class="comp-tag">Audit qualité</div>
+    <div class="offre-card">
+      <div class="offre-icon">👥</div>
+      <div class="offre-title">Manager votre équipe</div>
+      <p class="offre-desc">Fort de mon expérience en Team Leadership, je pilote vos équipes de production, anime les briefings, gère les plannings et maintiens la motivation au quotidien.</p>
+      <div class="offre-tags">
+        <span class="offre-tag">Team Leader</span>
+        <span class="offre-tag">Planning</span>
+        <span class="offre-tag">Coaching</span>
       </div>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-category">Outils Digitaux</div>
-      <div class="comp-title">Tech &amp; Digital</div>
-      <div class="comp-tags">
-        <div class="comp-tag">IA (Intelligence Artificielle)</div>
-        <div class="comp-tag">CRM</div>
-        <div class="comp-tag">Notion</div>
-        <div class="comp-tag">Google Workspace</div>
-        <div class="comp-tag">Microsoft Office</div>
+    <div class="offre-card">
+      <div class="offre-icon">📊</div>
+      <div class="offre-title">Piloter vos KPIs</div>
+      <p class="offre-desc">J'analyse vos indicateurs de performance, identifie les écarts, produis des reportings clairs et propose des plans d'action concrets pour atteindre vos objectifs.</p>
+      <div class="offre-tags">
+        <span class="offre-tag">KPI</span>
+        <span class="offre-tag">Reporting</span>
+        <span class="offre-tag">Analyse</span>
       </div>
     </div>
 
-    <div class="comp-card">
-      <div class="comp-category">Gestion</div>
-      <div class="comp-title">Administration</div>
-      <div class="comp-tags">
-        <div class="comp-tag">Facturation</div>
-        <div class="comp-tag">Documents financiers</div>
-        <div class="comp-tag">Logistique</div>
-        <div class="comp-tag">Classement</div>
-        <div class="comp-tag">Coordination</div>
+    <div class="offre-card">
+      <div class="offre-icon">🎯</div>
+      <div class="offre-title">Améliorer votre qualité</div>
+      <p class="offre-desc">Je mets en place des contrôles qualité rigoureux, identifie les causes d'anomalies et déploie des actions correctives pour élever durablement le niveau de service.</p>
+      <div class="offre-tags">
+        <span class="offre-tag">Quality Control</span>
+        <span class="offre-tag">Process</span>
+        <span class="offre-tag">Amélioration continue</span>
       </div>
     </div>
 
+    <div class="offre-card">
+      <div class="offre-icon">🎓</div>
+      <div class="offre-title">Former vos collaborateurs</div>
+      <p class="offre-desc">Je forme et monte en compétences vos équipes, de l'onboarding des nouveaux conseillers au coaching individuel pour renforcer les performances et réduire les erreurs.</p>
+      <div class="offre-tags">
+        <span class="offre-tag">Formation</span>
+        <span class="offre-tag">Onboarding</span>
+        <span class="offre-tag">Montée en compétences</span>
+      </div>
+    </div>
+
+    <div class="offre-card">
+      <div class="offre-icon">🗂️</div>
+      <div class="offre-title">Vous assister au quotidien</div>
+      <p class="offre-desc">Je prends en charge vos tâches administratives et opérationnelles : gestion documentaire, facturation, suivi logistique — pour que vous puissiez vous concentrer sur l'essentiel.</p>
+      <div class="offre-tags">
+        <span class="offre-tag">Assistance</span>
+        <span class="offre-tag">Back-office</span>
+        <span class="offre-tag">Organisation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header fade-up">
+    <p class="section-label">Aptitudes</p>
+    <h2>Mes <em>compétences</em></h2>
+  </div>
+  <div class="skills-grid fade-up">
+    <div class="skill-group">
+      <h3>Hard Skills</h3>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span>GRC – Gestion Relation Client</span><span>95%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:95%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span>Pack Office</span><span>85%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:85%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span>Pack Google</span><span>80%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:80%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span>CRM</span><span>85%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:85%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header"><span>Intelligence Artificielle (IA)</span><span>70%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:70%"></div></div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Soft Skills</h3>
+      <div class="soft-skills-list">
+        <div class="soft-tag">
+          <div class="soft-icon">🤝</div>
+          Aisance relationnelle
+        </div>
+        <div class="soft-tag">
+          <div class="soft-icon">🔄</div>
+          Capacité d'adaptation
+        </div>
+        <div class="soft-tag">
+          <div class="soft-icon">✅</div>
+          Rigoureux et fiable
+        </div>
+        <div class="soft-tag">
+          <div class="soft-icon">⭐</div>
+          Sens du service & GRC
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header fade-up">
+    <p class="section-label">Parcours académique</p>
+    <h2>Ma <em>formation</em></h2>
+  </div>
+  <div class="edu-cards fade-up">
+    <div class="edu-card">
+      <div class="edu-year">2018 – 2020</div>
+      <div class="edu-degree">Licence 2 en COMMO</div>
+      <div class="edu-field">Communication, Médiation, Média et Organisation</div>
+      <div class="edu-school">📍 FLSH – Université d'Antananarivo</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2017</div>
+      <div class="edu-degree">Baccalauréat Général</div>
+      <div class="edu-field">Filière générale</div>
+      <div class="edu-school">📍 Lycée Jules Ferry – Faravohitra, Antananarivo</div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-dots"></div>
-  <div class="section-label">Prêt à démarrer ?</div>
-  <h2 class="section-title">Discutons de votre<br><span class="accent">Projet</span> dès aujourd'hui</h2>
-  <p class="contact-sub">Prêt à optimiser vos opérations ? Contactez-moi directement.</p>
-
-  <div class="contact-cards">
-    <a class="contact-card" href="tel:+261343050072">
-      <div class="contact-card-icon">📞</div>
-      <div>
-        <div class="contact-card-label">Téléphone</div>
-        <div class="contact-card-value">+261 34 30 500 72</div>
-      </div>
-    </a>
-    <a class="contact-card" href="mailto:andrianiainatantely03@gmail.com">
-      <div class="contact-card-icon">✉️</div>
-      <div>
-        <div class="contact-card-label">Email</div>
-        <div class="contact-card-value">andrianiainatantely03@gmail.com</div>
-      </div>
-    </a>
-    <div class="contact-card">
-      <div class="contact-card-icon">📍</div>
-      <div>
-        <div class="contact-card-label">Localisation</div>
-        <div class="contact-card-value">Tananarive, Madagascar</div>
-      </div>
+<section id="contact">
+  <div class="contact-wrapper fade-up">
+    <p class="section-label" style="justify-content:center;color:var(--gold)">Me rejoindre</p>
+    <h2 style="margin-bottom:1.5rem">Travaillons <em>ensemble</em></h2>
+    <p class="contact-intro">Je suis disponible pour de nouvelles opportunités professionnelles. N'hésitez pas à me contacter pour discuter d'un projet ou d'un poste.</p>
+    <div class="contact-links">
+      <a href="tel:0343050072" class="contact-link">
+        <span class="contact-icon">📞</span>
+        +261 34 30 500 72
+      </a>
+      <a href="mailto:andrianiainatantely03@gmail.com" class="contact-link">
+        <span class="contact-icon">✉️</span>
+        andrianiainatantely03@gmail.com
+      </a>
     </div>
-  </div>
-
-  <div class="contact-available">
-    <div class="contact-available-dot"></div>
-    Disponible dès maintenant pour missions internationales en remote
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Tantely <span>Harijaona</span></div>
-  <div class="footer-copy">© 2026 — Expert en Pilotage Opérationnel & Customer Success</div>
+  <div>© 2026 <span>Tantely Harijaona</span> — Expert en Relation Client</div>
+  <div>Antananarivo, Madagascar</div>
 </footer>
 
+<script>
+// Intersection observer for fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
